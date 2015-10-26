@@ -19,14 +19,14 @@
 			<ul>
 			  <li ng-repeat="profile in profiles">
           {{ profile.name }} has born at {{ profile.birthdate | date }}
-          <a ng-click="edit" href="">edit</a>
+          <a ng-click="edit(profile)" href="">edit</a>
         </li>
 			</ul>
 		</div>
     <div class="col-md-6" ng-controller="ProfileDetailController">
-      <form ng-submit="update">
-        Name: <input type="text" ng-model="profile.name">
-        Birth Date: <input type="text" ng-model="profile.birthdate">
+      <form ng-submit="update" >
+        Name: <input type="text" ng-model="profileService.selectedProfile.name" ng-model-options="{ updateOn: 'submit' }">
+        Birth Date: <input type="text" ng-model="profileService.selectedProfile.birthdate" ng-model-options="{ updateOn: 'submit' }">
         <input type="submit" value="Update" class="btn-primary">
       </form>
 		</div>

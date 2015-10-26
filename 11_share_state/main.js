@@ -1,7 +1,19 @@
 var app = angular.module('myApp', []);
 
-app.controller('ProfileListController', function ($scope) {
-	$scope.profiles = [
+app.controller('ProfileListController', function ($scope, profileService) {
+	$scope.profiles = profileService.profiles;
+
+	$scope.edit = function(selectedProfile) {
+		profileService.selectedProfile = selectedProfile;
+	}
+});
+
+app.controller('ProfileDetailController', function ($scope, profileService) {
+	$scope.profileService = profileService;
+});
+
+app.service('profileService', function() {
+	this.profiles = [
     {
       name: "Twin PanichSombat",
       birthdate: new Date(1975, 3, 3),
@@ -22,9 +34,7 @@ app.controller('ProfileListController', function ($scope) {
       name: "Luis Suárez",
       birthdate: new Date(1987, 0, 24),
     },
-  ]
-});
+  ];
 
-app.controller('ProfileDetailController', function ($scope) {
-	
-});
+	this.selectedProfile = null;
+})
