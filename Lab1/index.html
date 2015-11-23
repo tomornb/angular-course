@@ -21,30 +21,51 @@
 
 
 <div class="container main-content">
-	<input type="text" placeholder="filter" ng-model="searchText"/>
 	<table>
 		<tr>
 			<th>
-				Image
+				title
 			</th>
 			<th>
-				Name
+				content
 			</th>
 			<th>
-				Birth Date
+				author
 			</th>
 			<th>
-				Income
+				postdate
 			</th>
 		</tr>
-		<tr ng-repeat="profile in profiles | filter:searchText">
+		<tr ng-repeat="item in items| filter:titleText">
 			<td>
-				<img src="{{profile.imageURL}}" width="50px">
+				{{item.title}}
 			</td>
 			<td>
-				{{profile.nickname }} - {{ profile.name}}
-			</td>			
+				{{item.content }}
+			</td>	
+			<td>
+				{{item.author }}
+			</td>	
+			<td>
+				{{item.postdate }}
+			</td>	
 		</tr>
+		<tr>
+			<th>
+				<input type="title" ng-model="titleText"/>
+			</th>
+			<th>
+				<input type="content" ng-model="contentText"/>
+			</th>
+			<th>
+				<input type="author" ng-model="authorText"/>
+			</th>
+			<th>
+				<button class="btn"					
+				    ng-click="addItem()">Insert
+				</button>
+			</th>
+		</tr>		
 	</table>
 </div>
 

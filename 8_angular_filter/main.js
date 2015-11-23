@@ -1,6 +1,20 @@
 
 var app = angular.module('myApp', []);
 
+app.filter('filter', function () {
+    return function (items, letter) {
+        var filtered = [];
+        var letterMatch = new RegExp(letter, 'i');
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            if (letterMatch.test(item.nickname)) {
+                filtered.push(item);
+            }
+        }
+        return filtered;
+    };
+});
+
 app.controller('ProfileController', function ($scope) {
 	$scope.profiles = [
     {

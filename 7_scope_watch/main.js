@@ -9,10 +9,12 @@ app.controller('BookController' , function($scope) {
   };
 
   $scope.wishListCount = 0;
-  $scope.$watch('wishListCount',function(newValue,oldValue){
+  //$scope.$watch('wishListCount',function(newValue,oldValue){
+  var cancle_watch = $scope.$watch('wishListCount',function(newValue,oldValue){ // input var for cancle watch
       console.log('called '+newValue+' times');
       if(newValue==2){
 				alert('Great! You have 2 items in your wish list. Time to buy what you love. ');
+        cancle_watch(); // after alert cancle wath
 			}
 		});
 });

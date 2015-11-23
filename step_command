@@ -1,0 +1,9 @@
+git config --global http.proxy http://proxyuser:proxypwd@www-gw.tac.co.th:8080
+git config --global https.proxy https://proxyuser:proxypwd@www-gw.tac.co.th:8080
+cd /home/crm/local_d/Dtac/02_OM_Redesign/source_code
+git clone  https://github.com/tomornb/angular-course.git
+
+node -v
+npm -v
+npm install -g serve && serve angular-course/ 
+open chrome localhost:3000
