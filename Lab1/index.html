@@ -14,8 +14,7 @@
 			<a class="navbar-brand"
 			   href="/">Controllers
 			</a>
-		</div>
-		,
+		</div>	
 	</div>
 </nav>
 
@@ -35,6 +34,11 @@
 			<th>
 				postdate
 			</th>
+			<th>
+				<button class="btn"					
+				    ng-click="addItem()">Insert
+				</button>
+			</th>	
 		</tr>
 		<tr ng-repeat="item in items| filter:titleText">
 			<td>
@@ -47,7 +51,7 @@
 				{{item.author }}
 			</td>	
 			<td>
-				{{item.postdate }}
+				{{item.postdate | date:'medium'}}
 			</td>	
 		</tr>
 		<tr>
@@ -59,11 +63,6 @@
 			</th>
 			<th>
 				<input type="author" ng-model="authorText"/>
-			</th>
-			<th>
-				<button class="btn"					
-				    ng-click="addItem()">Insert
-				</button>
 			</th>
 		</tr>		
 	</table>

@@ -7,3 +7,40 @@ node -v
 npm -v
 npm install -g serve && serve angular-course/ 
 open chrome localhost:3000
+
+git clone https://github.com/tomornb/angular-course-additional.git 
+cd /home/crm/local_d/Dtac/02_OM_Redesign/source_code
+serve angular-course-additional/ -p 3030
+open chrome localhost:3030
+
+
+ git clone https://github.com/tomornb/angular-course-blogpost-server.git 
+ cd /home/crm/local_d/Dtac/02_OM_Redesign/source_code/angular-course-blogpost-server
+ sudo npm install
+ sudo npm install body-parser
+ node index.js
+
+
+ git clone https://github.com/tomornb/angular-course-directive.git
+ cd /home/crm/local_d/Dtac/02_OM_Redesign/source_code
+ serve angular-course-directive/ -p 3060
+open chrome localhost:3060
+
+#on js
+noIsolate
+#on html
+no-isolate ("- แทนบอกว่าตัวใหญ่")
+
+tool สำหรับ ดูค่าต่างๆบน chrome ต้อง install 
+angular batarang *** monitor performance  ได้ด้วย
+angular scope inspector
+anguler watchers
+
+git clone https://github.com/tomornb/angular-todo-tdd.git
+ cd /home/crm/local_d/Dtac/02_OM_Redesign/source_code/angular-t
+sudo npm install
+sudo npm install -g bower
+sudo npm install -g gulp
+sudo bower install 
+gulp serve 
+gulp test:auto

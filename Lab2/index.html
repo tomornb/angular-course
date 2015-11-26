@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="uiRouterExample">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <meta charset="utf-8">
+</head>
+<body ng-controller="ProfileController">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Lab2</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="home">Insert Post</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class="container">
+    <div ui-view></div>
+  </div>
+
+<div class="container main-content">
+  <table>
+    <tr>
+      <th>
+        title
+      </th>
+      <th>
+        content
+      </th>
+      <th>
+        author
+      </th>
+      <th>
+        postdate
+      </th>
+      <th>
+        <button class="btn"         
+            ng-click="addItem()">Insert
+        </button>
+      </th> 
+    </tr>
+    <tr ng-repeat="item in items">
+      <td>
+        {{item.title}}
+      </td>
+      <td>
+        {{item.content }}
+      </td> 
+      <td>
+        {{item.author }}
+      </td> 
+      <td>
+        {{item.postdate | date:'medium'}}
+      </td> 
+    </tr> 
+  </table>
+</div>
+
+<script type="text/ng-template" id="templates/home.html">
+  <div class="row">
+  <table>
+    <tr>
+      <th>
+        title
+      </th>
+      <th>
+        content
+      </th>
+      <th>
+        author
+      </th>
+      <th>
+        <button class="btn"         
+            ng-click="addItem()">Insert
+        </button>
+      </th> 
+    </tr>
+    <tr>
+      <th>
+        <input type="title" ng-model="titleText"/>
+      </th>
+      <th>
+        <input type="content" ng-model="contentText"/>
+      </th>
+      <th>
+        <input type="author" ng-model="authorText"/>
+      </th>
+    </tr>   
+  </table>
+  </div>
+</script>
+
+<script src="../libs/angular/angular.min.js" ></script>
+<script src="../libs/angular-ui-ui-router/release/angular-ui-router.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
